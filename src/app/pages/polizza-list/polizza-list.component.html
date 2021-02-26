@@ -1,0 +1,24 @@
+<header>
+  <label class="title centering">Lista Polizze</label>
+</header>
+
+<div class="margin card-margin centering" *ngFor="let polizza of polizzeList">
+  <polizza-card
+    (itemClicked)="cardClicked($event)"
+    [polizza]="polizza"
+  ></polizza-card>
+</div>
+
+<label class="title centering" *ngIf="polizzeList.length === 0"
+  >Non hai polizze attualmente attive, creane una!</label
+>
+
+<div *ngIf="polizzeList.length !== 0" class="margin button-positioning">
+  <button (click)="goToRegistration()">Crea Nuova Polizza</button>
+  <button (click)="removePolizza()">Cancella Polizza</button>
+  <button (click)="editPolizza()">Modifica Polizza</button>
+</div>
+
+<div *ngIf="polizzeList.length === 0" class="margin centering">
+  <button (click)="goToRegistration()">Crea Nuova Polizza</button>
+</div>

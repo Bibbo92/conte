@@ -1,0 +1,21 @@
+<div
+  class="card"
+  [ngClass]="{ selected: polizza.selected }"
+  (click)="cardClicked()"
+>
+  <label class="card-text label-spacing left-align">
+    Id Polizza : {{ polizza.id }}</label
+  >
+  <label class="card-text label-spacing left-align">
+    Nome Intestatario : {{ polizza.name }}</label
+  >
+  <label class="card-text label-spacing left-align">
+    Cognome Intestatario : {{ polizza.surname }}</label
+  >
+  <label class="card-text label-spacing left-align">
+    Modello : {{ polizza.model }}</label
+  >
+  <label class="card-text label-spacing left-align">
+    Targa : {{ polizza.licensePlate }}</label
+  >
+</div>

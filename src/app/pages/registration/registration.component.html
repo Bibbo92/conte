@@ -1,0 +1,29 @@
+<header>
+  <label class="title centering">Inserisci i dati della tua vettura</label>
+</header>
+
+<form [formGroup]="formGroup">
+  <div class="margin element-margin" *ngFor="let input of inputs">
+    <custom-input
+      text-value-accessor-directive
+      [formControlName]="input.inputName"
+      [input]="input"
+    ></custom-input>
+    <div
+      *ngIf="!formGroup.get(input.inputName).valid && showError"
+      class="error-box centering text-styling"
+    >
+      <label>Inserisci {{ input.inputName }}</label>
+    </div>
+  </div>
+
+  <div class="button-margin margin button-positioning">
+    <button *ngIf="selectedPolizza" type="submit" (click)="submit()">
+      ModificaPolizza
+    </button>
+    <button *ngIf="!selectedPolizza" type="submit" (click)="submit()">
+      Crea Polizza
+    </button>
+    <button (click)="goToListaPolizze()">Lista Polizze</button>
+  </div>
+</form>
